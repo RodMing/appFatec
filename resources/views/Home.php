@@ -11,12 +11,7 @@
 	    </div>
 	    <form>
 		  <div class="row">
-            <label>
-              Qual a mensagem?
-              <textarea placeholder="Digite aqui sua mensagem" id="mensagem"></textarea>
-            </label>
-		  </div>
-          <div class="row">
+            <textarea placeholder="Digite aqui sua mensagem" id="mensagem"></textarea>
             <button type="submit" class="button">
                 Enviar
             </button>
