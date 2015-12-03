@@ -6,6 +6,6 @@ class Home extends Controller
 {
     public function index()
     {
-        return 'appFatec';
+        return view('Home');
     }
 }
