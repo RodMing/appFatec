@@ -9,7 +9,7 @@
 	        <h1>AppFatec</h1>
 	      </div>
 	    </div>
-	    <form>
+	    <form method="post">
 		  <div class="row">
             <textarea placeholder="Digite aqui sua mensagem" id="mensagem"></textarea>
             <button type="submit" class="button">
