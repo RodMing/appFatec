@@ -9,5 +9,12 @@
 	        <h1>AppFatec</h1>
 	      </div>
 	    </div>
+	    <form method="POST">
+	    	<input type="text" id="mensagem"/>
+	    	<br>
+	    	<button type="button" class="button">
+	    		Enviar
+	    	</button>
+	    </form>
     </body>
 </html>
