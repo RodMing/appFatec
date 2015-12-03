@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 class Home extends Controller
 {
-    public function getIndex()
+    public function index()
     {
         return 'appFatec';
     }

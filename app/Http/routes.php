@@ -11,6 +11,6 @@
 |
 */
 
-$app->get('/', 'Home');
+$app->get('/', 'Home@index');
 
 $app->post('/', 'Cliente@register');
