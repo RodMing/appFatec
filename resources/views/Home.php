@@ -9,9 +9,9 @@
 	        <h1>AppFatec</h1>
 	      </div>
 	    </div>
-	    <form action="notificar" method="post">
+	    <form action="notificacao" method="post">
 		  <div class="row">
-            <textarea placeholder="Digite aqui sua mensagem" id="mensagem"></textarea>
+            <textarea placeholder="Digite aqui sua mensagem" name="mensagem"></textarea>
             <button type="submit" class="button">
                 Enviar
             </button>
