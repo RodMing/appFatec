@@ -33,6 +33,6 @@ class Gcm{
 
 	private function getAllClientes()
 	{
-		return DB::select("SELECT RegistrationId FROM Cliente"));
+		return DB::select("SELECT RegistrationId FROM Cliente");
 	}
 }
