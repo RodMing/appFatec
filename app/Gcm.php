@@ -5,7 +5,7 @@ use PHP_GCM\Sender;
 use PHP_GCM\Message;
 
 class Gcm{
-	public function send(string $mensagem)
+	public function send($mensagem)
 	{
 		$sender = new Sender('AIzaSyAZrGXSd_KQ-NFfCdZxNhar6MthsNEX1x0');
 		$message = new Message('', ['message'=>$mensagem]);
