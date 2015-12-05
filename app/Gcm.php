@@ -10,15 +10,25 @@ class Gcm{
 	{
 		$sender = new Sender('AIzaSyAZrGXSd_KQ-NFfCdZxNhar6MthsNEX1x0');
 		$message = new Message('', ['message'=>$mensagem]);
+
+		$errors = array();
+		$success = array();
+
 		try {
 			$clientes = $this->getAllClientes();
 
 			foreach ($clientes as $cliente) {
-				$sender->send(
+				$result = $sender->send(
 			    	$message,
 			    	$cliente->RegistrationId,
 			    	10
 			    );
+
+			    if (!$result->getErrorCode()) {
+			    	$errors[] = $cliente->RegistrationId;
+			    } else {
+			    	$success[] = $cliente->RegistrationId;
+			    }
 			}
 
 		} catch (\InvalidArgumentException $e) {
@@ -28,6 +38,9 @@ class Gcm{
 		} catch (\Exception $e) {
 		    dd($e);
 		}
+
+		var_export($success);
+		dd($errors);
 	}
 
 	private function getAllClientes()
