@@ -10,13 +10,17 @@ class Gcm{
 	{
 		$sender = new Sender('AIzaSyAZrGXSd_KQ-NFfCdZxNhar6MthsNEX1x0');
 		$message = new Message('', ['message'=>$mensagem]);
-		$this->getAllClientes();
 		try {
-		    $result = $sender->send(
-		    	$message,
-		    	\App::make('App\Usuario')->first()->registerId,
-		    	10
-		    );
+			$clientes = $this->getAllClientes();
+
+			foreach ($clientes as $cliente) {
+				$sender->send(
+			    	$message,
+			    	$cliente->RegistrationId,
+			    	10
+			    );
+			}
+
 		} catch (\InvalidArgumentException $e) {
 		    dd($e);
 		} catch (\PHP_GCM\InvalidRequestException $e) {
@@ -29,7 +33,6 @@ class Gcm{
 
 	private function getAllClientes()
 	{
-		dd(DB::select("SELECT RegistrationId FROM Cliente"));
-		return;
+		return DB::select("SELECT RegistrationId FROM Cliente"));
 	}
 }
