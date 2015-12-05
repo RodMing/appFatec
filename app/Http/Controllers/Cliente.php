@@ -36,8 +36,16 @@ class Cliente extends Controller
 
         if (preg_match('/^(send-gcm-message){1}$/', $metodo)) {
             // Enviar mensagem
+            $gcm = \App::make('App\GcmModel');
+            $result = $gcm->all();
+            $reg_id = [];
+
+            foreach ($result as $value) {
+                $reg_id[] = $value->registration_id;
+            }
+            dd($reg_id);
             return (new Gcm())->enviar(
-                (new AplGcm())->getAll()
+                $reg_id
             );
         }
 
