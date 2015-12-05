@@ -29,7 +29,7 @@ class Gcm{
 
 	private function getAllClientes()
 	{
-		dd(DB::select("SELECT RegisterId FROM Cliente"));
+		dd(DB::select("SELECT RegistrationId FROM Cliente"));
 		return;
 	}
 }
