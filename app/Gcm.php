@@ -28,7 +28,6 @@ class Gcm{
 		} catch (\Exception $e) {
 		    dd($e);
 		}
-		dd($result);
 	}
 
 	private function getAllClientes()
