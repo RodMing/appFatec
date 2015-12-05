@@ -12,9 +12,10 @@ class Notificacao extends Controller
         $mensagem = $request->input('mensagem');
 
         if (is_string($mensagem)) {
-        	(new \App\Gcm())->send($mensagem);
+        	$result = (new \App\Gcm())->send($mensagem);
+        	dd($result);
         }
 
-        return view('Home');
+        return redirect()->back();
     }
 }

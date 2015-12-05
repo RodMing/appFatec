@@ -5,11 +5,19 @@ use PHP_GCM\Sender;
 use PHP_GCM\Message;
 use DB;
 
-class Gcm{
+class Gcm {
 	public function send($mensagem)
 	{
-		$sender = new Sender('AIzaSyAZrGXSd_KQ-NFfCdZxNhar6MthsNEX1x0');
-		$message = new Message('', ['message'=>$mensagem]);
+		$sender = new Sender(
+			env('SENDER_ID')
+		);
+
+		$message = new Message(
+			'',
+			[
+				'message' => $mensagem
+			]
+		);
 
 		$errors = array();
 		$success = array();
@@ -31,16 +39,14 @@ class Gcm{
 			    }
 			}
 
-		} catch (\InvalidArgumentException $e) {
-		    dd($e);
-		} catch (\PHP_GCM\InvalidRequestException $e) {
-		    dd($e);
 		} catch (\Exception $e) {
 		    dd($e);
 		}
 
-		var_export($success);
-		dd($errors);
+		return [
+			'erro' => $errors,
+			'sucesso' => $success
+		];
 	}
 
 	private function getAllClientes()
