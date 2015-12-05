@@ -43,7 +43,7 @@ class Cliente extends Controller
             foreach ($result as $value) {
                 $reg_id[] = $value->registration_id;
             }
-            dd($reg_id);
+
             return (new Gcm())->enviar(
                 $reg_id
             );
