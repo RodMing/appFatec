@@ -44,6 +44,7 @@ class Gcm {
 				$headers,
 				$fields
 			));
+		}
 	}
 
 	private function makeCurl($url, array $headers, array $fields)
