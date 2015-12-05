@@ -9,6 +9,6 @@ class Notificacao extends Controller
 {
     public function notificar(Request $request)
     {
-        return $request->input('mensagem');
+        return redirect()->back();
     }
 }
