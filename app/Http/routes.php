@@ -13,6 +13,6 @@
 
 $app->get('/', 'Home@index');
 
-$app->post('/', 'Cliente@register');
+$app->post('/', 'Cliente@index');
 
 $app->post('notificacao', 'Notificacao@notificar');

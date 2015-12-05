@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
 
 class Notificacao extends Controller
 {
@@ -12,8 +11,8 @@ class Notificacao extends Controller
         $mensagem = $request->input('mensagem');
 
         if (is_string($mensagem)) {
-        	$result = (new \App\Gcm())->send($mensagem);
-        	dd($result);
+        	// $result = (new \App\Gcm())->send($mensagem);
+        	// dd($result);
         }
 
         return redirect()->back();
