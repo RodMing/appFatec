@@ -20,9 +20,11 @@ class Cliente extends Controller
     private function call($metodo, $regId = '')
     {
         if (preg_match('/^(save-gcm-registration-id){1}$/', $metodo) && $regId) {
+            $gcm = \App::make('App\GcmModel')
+                ->registration_id = $regId;
+
             return [
-                'feedback' => (new AplGcm())
-                    ->save(new GcmModel($regId))
+                'feedback' => $gcm->save()
             ];
         }
 
