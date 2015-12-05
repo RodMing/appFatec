@@ -23,8 +23,14 @@ class Cliente extends Controller
             $gcm = \App::make('App\GcmModel');
             $gcm->registration_id = $regId;
 
+            try {
+                $result = $gcm->save();
+            } catch (\Exception $e) {
+                $result = false;
+            }
+
             return [
-                'feedback' => $gcm->save()
+                'feedback' => $result
             ];
         }
 
