@@ -41,11 +41,13 @@ class Gcm {
 				'Content-Type: application/json'
 			);
 
-			dd($this->makeCurl(
-				env('GCM_URL'),
-				$headers,
-				$fields
-			));
+			return json_decode(
+				$this->makeCurl(
+					env('GCM_URL'),
+					$headers,
+					$fields
+				)
+			);
 		}
 	}
 
