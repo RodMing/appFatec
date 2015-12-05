@@ -33,7 +33,7 @@ class Gcm {
 			    );
 
 			    if ($result->getErrorCode()) {
-			    	$errors[] = $cliente->RegistrationId;
+			    	$errors[$cliente->RegistrationId] = $result->getErrorCode();
 			    } else {
 			    	$success[] = $cliente->RegistrationId;
 			    }
