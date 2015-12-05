@@ -15,6 +15,6 @@ class Notificacao extends Controller
         	(new \App\Gcm())->send($mensagem);
         }
 
-        return redirect()->route('/');
+        return redirect()->route('/'); 
     }
 }
