@@ -44,7 +44,7 @@ class Cliente extends Controller
                 $reg_id[] = $value->registration_id;
             }
 
-            return (new Gcm())->enviar(
+            return (new \App\Gcm())->enviar(
                 $reg_id
             );
         }
