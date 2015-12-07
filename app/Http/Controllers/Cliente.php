@@ -11,10 +11,12 @@ class Cliente extends Controller
         //$metodo = $request->input('method');
         //$regId = $request->input('reg-id');
 
-        $jsonObject = $request->input('jsonObject');
+        $jsonObject = (object)$request->input('jsonObject');
+
         if ($jsonObject->method == 'save-user') {
             $gcm = \App::make('App\GcmModel');
-            $gcm->registration_id = $jsonObject->user->registrationId;
+            $user = (object)$jsonObject->user;
+            $gcm->registration_id = $user->registrationId;
             try {
                 $result = $gcm->save();
             } catch (\Exception $e) {
