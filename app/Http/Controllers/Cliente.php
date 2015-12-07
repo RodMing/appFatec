@@ -8,11 +8,25 @@ class Cliente extends Controller
 {
     public function index(Request $request)
     {
-        $metodo = $request->input('method');
-        $regId = $request->input('reg-id');
+        //$metodo = $request->input('method');
+        //$regId = $request->input('reg-id');
+
+        $jsonObject = $request->input('jsonObject');
+        if ($jsonObject->method == 'save-user') {
+            $gcm = \App::make('App\GcmModel');
+            $gcm->registration_id = $jsonObject->user->registrationId;
+            try {
+                $result = $gcm->save();
+            } catch (\Exception $e) {
+                $result = false;
+            }
+        }
 
         return response()->json(
-            $this->call($metodo, $regId)
+            [
+                'result' => $result,
+                'id' => '123568'
+            ]
         );
     }
 

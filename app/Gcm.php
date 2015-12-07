@@ -19,10 +19,8 @@ class Gcm {
 			
 			// PAYLOAD DATA
 			$data = array(
-				'title' => 'Teste GCM ('.rand(0,20000).')',
-				'author' => 'Adriano',
-				'time' => date('Y-m-d H:i:s'),
-				'message' => 'Novo post'
+				'title' => 'ATENÇÃO ISSO É UM TESTE !!',
+				'message' => 'Sou o RODRIGO e não me responsabilizo por essa mensagem.'
 			);
 
 			// SET POST VARIABLES
@@ -31,7 +29,7 @@ class Gcm {
 				'collapse_key' => 'my_type',
 				'delay_while_idle'=> false,
 				'time_to_live' => (60*60*24),
-				'restricted_package_name' => 'br.exemplogcm',
+				'restricted_package_name' => 'com.apimentel.appfatec.appfatec2',
 				'dry_run' => false,
 				'data' => $data
 			);
