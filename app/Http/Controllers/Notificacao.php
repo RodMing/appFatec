@@ -13,8 +13,11 @@ class Notificacao extends Controller
         if (is_string($mensagem)) {
         	$gcm = \App::make('App\GcmModel');
         	$res = $gcm->all()->get();
-        	dd($res);
-        	(new \App\Gcm())->enviar();
+        	$ids = [];
+        	foreach ($res as $key) {
+        		$ids[] = $key->registration_id;
+        	}
+        	dd((new \App\Gcm())->enviar($ids, 'Titulo', $mensagem));
         }
 
         return redirect()->back();
