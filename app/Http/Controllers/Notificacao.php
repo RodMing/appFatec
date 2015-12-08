@@ -26,6 +26,6 @@ class Notificacao extends Controller
         		);
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('status', 'SUCESSO');
     }
 }
