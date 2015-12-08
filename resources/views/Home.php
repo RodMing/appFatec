@@ -4,11 +4,9 @@
     	<link rel="stylesheet" href="../css/app.css" />
 	</head>
     <body>
-    	@if (session('status'))
-		    <div class="alert primary">
-		        {{ session('status') }}
-		    </div>
-		@endif
+	    <div class="alert primary">
+	        <?php if(isset($status)) echo $status; ?>
+	    </div>
         <div class="row">
 	      <div class="large-12 columns">
 	        <h1>AppFatec</h1>

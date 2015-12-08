@@ -26,6 +26,6 @@ class Notificacao extends Controller
         		);
         }
 
-        return redirect()->back()->with('status', 'SUCESSO');
+        return view('Home', ['status' => 'SUCESSO !!']);
     }
 }
