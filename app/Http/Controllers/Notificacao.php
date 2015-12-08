@@ -12,7 +12,7 @@ class Notificacao extends Controller
 
         if (is_string($mensagem)) {
         	$gcm = \App::make('App\GcmModel');
-        	$res = $gcm->all()->get();
+        	$res = $gcm->all();
         	$ids = [];
         	foreach ($res as $key) {
         		$ids[] = $key->registration_id;
