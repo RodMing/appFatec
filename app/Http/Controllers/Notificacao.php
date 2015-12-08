@@ -23,7 +23,7 @@ class Notificacao extends Controller
         			$ids,
         			$titulo,
         			$mensagem
-        		);
+        		)->toString();
 
         	\Log::info($result);
         }
