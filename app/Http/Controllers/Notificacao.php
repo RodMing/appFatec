@@ -18,12 +18,14 @@ class Notificacao extends Controller
         	foreach ($res as $key) {
         		$ids[] = $key->registration_id;
         	}
-        	$result = (new \App\Gcm())
-        		->enviar(
-        			$ids,
-        			$titulo,
-        			$mensagem
-        		)->toString();
+        	$result = json_encode(
+        		(new \App\Gcm())
+        			->enviar(
+        				$ids,
+        				$titulo,
+        				$mensagem
+        			)
+        	);
 
         	\Log::info($result);
         }
