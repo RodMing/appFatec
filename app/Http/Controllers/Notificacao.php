@@ -11,8 +11,10 @@ class Notificacao extends Controller
         $mensagem = $request->input('mensagem');
 
         if (is_string($mensagem)) {
-        	// $result = (new \App\Gcm())->send($mensagem);
-        	// dd($result);
+        	$gcm = \App::make('App\GcmModel');
+        	$res = $gcm->all()->get();
+        	dd($res);
+        	(new \App\Gcm())->enviar();
         }
 
         return redirect()->back();

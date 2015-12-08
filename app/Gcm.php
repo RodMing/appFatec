@@ -3,7 +3,7 @@
 namespace App;
 
 class Gcm {
-	public function enviar(array $registrationIDs)
+	public function enviar(array $registrationIDs, $titulo, $mensagem)
 	{
 		// GCM PERMITE APENAS 1000 REGISTROS POR ENVIO
 		$tam = ceil(count($registrationIDs) / 1000);
@@ -19,8 +19,8 @@ class Gcm {
 			
 			// PAYLOAD DATA
 			$data = array(
-				'title' => 'ATENÇÃO ISSO É UM TESTE !!',
-				'message' => 'Sou o RODRIGO e não me responsabilizo por essa mensagem.'
+				'title' => $titulo,
+				'message' => $mensagem
 			);
 
 			// SET POST VARIABLES
