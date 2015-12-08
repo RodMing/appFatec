@@ -18,14 +18,16 @@ class Notificacao extends Controller
         	foreach ($res as $key) {
         		$ids[] = $key->registration_id;
         	}
-        	(new \App\Gcm())
+        	$result = (new \App\Gcm())
         		->enviar(
         			$ids,
         			$titulo,
         			$mensagem
         		);
+
+        	\Log::info($result);
         }
 
-        return view('Home', ['status' => 'SUCESSO !!']);
+        return redirect()->back();
     }
 }
