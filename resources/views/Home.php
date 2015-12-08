@@ -10,11 +10,13 @@
 	      </div>
 	    </div>
 	    <form action="notificacao" method="post">
-		  <div class="row">
-            <input type="text" placeholder="Digite aqui a titulo da mensagem" name="titulo"/>
-            <input type="text" placeholder="Digite aqui sua mensagem" name="mensagem"/>
+		  <div class="medium-6 columns">
+            <input type="text" placeholder="Titulo" name="titulo"/>
           </div>
-          <div class="row">
+          <div class="medium-6 columns">
+            <input type="text" placeholder="Mensagem" name="mensagem"/>
+          </div>
+          <div class="large-12 columns">
           	<button type="submit" class="button">
                 Enviar
             </button>
