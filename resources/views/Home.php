@@ -10,19 +10,15 @@
 	      </div>
 	    </div>
 	    <form action="notificacao" method="post">
-	   		<div class="row">
-		  		<div class="small-6 columns">
-            		<input type="text" placeholder="Titulo" name="titulo"/>
-          		</div>
-          		<div class="small-6 columns">
-            		<input type="text" placeholder="Mensagem" name="mensagem"/>
-          		</div>
-          	</div>
-          	<div class="row">
-          		<div class="small-12 columns">
-          			<input type="submit" class="button" value="Enviar">
-          		</div>
-          	</div>
+	   		<label>Título
+				<input type="text" placeholder="Titulo" name="titulo"/>
+			</label>
+			<br>
+      		<label>Mensagem
+				<input type="text" placeholder="Mensagem" name="mensagem"/>
+			</label>
+			<br>
+      		<input type="submit" class="button" value="Enviar">
 		</form>
     </body>
 </html>
