@@ -10,12 +10,15 @@
 	      </div>
 	    </div>
 	    <form action="notificacao" method="post">
-		  <div class="row">
-            <textarea placeholder="Digite aqui sua mensagem" name="mensagem"></textarea>
-            <button type="submit" class="button">
-                Enviar
-            </button>
-          </div>
+	   		<label>Título
+				<input type="text" placeholder="Titulo" name="titulo"/>
+			</label>
+			<br>
+      		<label>Mensagem
+				<input type="text" placeholder="Mensagem" name="mensagem"/>
+			</label>
+			<br>
+      		<input type="submit" class="button" value="Enviar">
 		</form>
     </body>
 </html>

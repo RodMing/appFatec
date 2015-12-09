@@ -8,46 +8,33 @@ class Cliente extends Controller
 {
     public function index(Request $request)
     {
-        $metodo = $request->input('method');
-        $regId = $request->input('reg-id');
-
-        return response()->json(
-            $this->call($metodo, $regId)
+        $jsonObject = json_decode(json_encode($request->all()));
+        \Log::info(
+            json_encode($jsonObject)
         );
-    }
-
-    private function call($metodo, $regId = '')
-    {
-        if (preg_match('/^(save-gcm-registration-id){1}$/', $metodo) && $regId) {
+        $jsonObject = json_decode($jsonObject->jsonObject_, true);
+        $jsonObject['user'] = array_values($jsonObject['user']);
+        
+        if ($jsonObject['method'] == 'save-user') {
             $gcm = \App::make('App\GcmModel');
-            $gcm->registration_id = $regId;
-
+            $gcm->registration_id = $jsonObject['user'][1];
             try {
                 $result = $gcm->save();
+                $id = (string)$gcm->id;
             } catch (\Exception $e) {
                 $result = false;
+                $id = (string)'';
             }
-
-            return [
-                'feedback' => $result
-            ];
-        }
-
-        if (preg_match('/^(send-gcm-message){1}$/', $metodo)) {
-            // Enviar mensagem
-            $gcm = \App::make('App\GcmModel');
-            $result = $gcm->all();
-            $reg_id = [];
-
-            foreach ($result as $value) {
-                $reg_id[] = $value->registration_id;
-            }
-
-            return (new \App\Gcm())->enviar(
-                $reg_id
+            \Log::info(
+                json_encode($result)
+            );
+            return response()->json(
+                [
+                    'id' => $id,
+                    'result' => "{'id':$id, 'registrationId': $gcm->registration_id}"
+                ]
             );
         }
-
-        return [];
+        return response()->json(false);
     }
 }
