@@ -1,2 +1,4 @@
 language: php
 sudo: true
+php:
+  - 5.6
