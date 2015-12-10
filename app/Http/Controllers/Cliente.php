@@ -28,7 +28,6 @@ class Cliente extends Controller
             \Log::info(
                 json_encode($result)
             );
-            dd($result);
             return response()->json(
                 [
                     'id' => $id,
