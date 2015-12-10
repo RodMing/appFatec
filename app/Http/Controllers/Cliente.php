@@ -13,11 +13,11 @@ class Cliente extends Controller
             json_encode($jsonObject)
         );
         $jsonObject = json_decode($jsonObject->jsonObject_, true);
-        $jsonObject['user'] = array_values($jsonObject['user']);
+//        $jsonObject['user'] = array_values($jsonObject['user']);
         
         if ($jsonObject['method'] == 'save-user') {
             $gcm = \App::make('App\GcmModel');
-            $gcm->registration_id = $jsonObject['user'][1];
+            $gcm->registration_id = $jsonObject['user']['registrationId'];
             try {
                 $result = $gcm->save();
                 $id = (string)$gcm->id;
