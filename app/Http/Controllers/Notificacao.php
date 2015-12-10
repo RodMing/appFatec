@@ -26,7 +26,7 @@ class Notificacao extends Controller
         				$mensagem
         			)
         	);
-
+            dd($result);
         	\Log::info($result);
         }
 
