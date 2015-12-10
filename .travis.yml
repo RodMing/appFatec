@@ -1,6 +1,1 @@
-sudo: true
-install:
-    - composer install
-script:
-    - cp .env.example .env
-    - chmod 777 -R storage/*
+language: php
