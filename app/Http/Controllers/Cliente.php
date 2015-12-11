@@ -13,7 +13,6 @@ class Cliente extends Controller
             json_encode($jsonObject)
         );
         $jsonObject = json_decode($jsonObject->jsonObject_, true);
-//        $jsonObject['user'] = array_values($jsonObject['user']);
         
         if ($jsonObject['method'] == 'save-user') {
             $gcm = \App::make('App\GcmModel');
@@ -21,6 +20,12 @@ class Cliente extends Controller
             try {
                 $result = $gcm->save();
                 $id = (string)$gcm->id;
+                dd((new \App\Gcm())
+        			->enviar(
+        				[$gcm->registration_id],
+        				'Bem-vindo',
+        				'Seja bem vindo ao appFatec !'
+        			));
             } catch (\Exception $e) {
                 $result = false;
                 $id = (string)'';
