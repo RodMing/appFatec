@@ -10,15 +10,30 @@
 	      </div>
 	    </div>
 	    <form action="notificacao" method="post">
-	   		<label>Título
-				<input type="text" placeholder="Titulo" name="titulo"/>
-			</label>
-			<br>
-      		<label>Mensagem
-				<input type="text" placeholder="Mensagem" name="mensagem"/>
-			</label>
-			<br>
-      		<input type="submit" class="button" value="Enviar">
+	        <table>
+	            <tr>
+	                <td>
+	                    <label>Título</label>
+	                </td>
+	                <td>
+	                    <input type="text" placeholder="Titulo" name="titulo"/>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td>
+	                    <label>Mensagem</label>
+	                </td>
+	                <td>
+	                    <input type="text" placeholder="Mensagem" name="mensagem"/>
+	                </td>
+	            </tr>
+	            <tr>
+	                <td></td>
+	                <td>
+	                    <input style="float:right;margin:0" type="submit" class="alert button" value="Enviar">
+	                </td>
+	            </tr>
+	        </table>
 		</form>
     </body>
 </html>

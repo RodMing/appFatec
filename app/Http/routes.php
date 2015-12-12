@@ -15,4 +15,6 @@ $app->get('/', 'Home@index');
 
 $app->post('/', 'Cliente@index');
 
+$app->get('notificacao', function(){return redirect('/');});
+
 $app->post('notificacao', 'Notificacao@notificar');
